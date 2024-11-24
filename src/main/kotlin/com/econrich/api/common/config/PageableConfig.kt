@@ -1,4 +1,4 @@
-package com.econrich.api.config
+package com.econrich.api.common.config
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

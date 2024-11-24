@@ -5,6 +5,7 @@ import com.econrich.api.dto.EmployeeHistoryDto
 import com.econrich.api.dto.EmployeeSalaryDto
 import com.econrich.api.dto.EmployeeUpdateDto
 import com.econrich.api.service.EmployeeService
+import jakarta.validation.Valid
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.domain.Sort
@@ -33,14 +34,14 @@ class EmployeeController(private val employeeService: EmployeeService) {
     @PatchMapping("/{id}")
     fun updateEmployee(
         @PathVariable id: Int,
-        @RequestBody dto: EmployeeUpdateDto
+        @RequestBody @Valid dto: EmployeeUpdateDto
     ): EmployeeDto {
         return employeeService.updateEmployee(id, dto);
     }
 
     @PatchMapping("/salary")
     fun updateEmployeeSalary(
-        @RequestBody dto: EmployeeSalaryDto
+        @RequestBody @Valid dto: EmployeeSalaryDto
     ): List<EmployeeDto> {
         return employeeService.updateSalaries(dto);
     }
